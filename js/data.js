@@ -32,7 +32,12 @@ window.PORTFOLIO = {
     lead: 'I\'m Amaan Huda, a B.Tech student in <em>Artificial Intelligence &amp; Data Science</em> (batch of 2029) who has been exploring technology since 2021 and decided to become a developer who builds <em>innovative, helpful</em> things.',
     sub: "My main passion is learning, solving problems and getting a little better with every project. I work across React, Node.js and Python: from hosted client websites to Orbital AI, the satellite collision-assessment system that took our team into the top 7 at Smart India Hackathon 2026.",
     photo: "assets/profile.jpg",   // drop a portrait here; a monogram shows until you do
-    meta: [["Degree", "B.Tech · AI & DS"], ["Batch", "2025 — 2029"], ["Status", "Open to internships"]]
+    meta: [["Degree", "B.Tech · AI & DS"], ["Batch", "2025 — 2029"], ["Status", "Open to internships"]],
+    // hologram next to the intro: a pin on the globe + one tag per orbit
+    holo: {
+      origin: { label: "Origin · India", lat: 20.6, lon: 78.9 },
+      satellites: ["Orbital AI · SIH top 7", "SGPA 9.18", "Coding since 2021"]
+    }
   },
 
   education: [

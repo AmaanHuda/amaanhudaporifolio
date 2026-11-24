@@ -99,8 +99,8 @@
     $('#about-meta').innerHTML = (D.about.meta || [['Role', D.role]])
       .map(([k, v]) => `<div>${k}<b data-final="${esc(v)}">${esc(v)}</b></div>`).join('');
     const img = new Image();
-    img.onload = () => { $('#about-photo').src = img.src; $('#about-crt').classList.add('has-photo'); };
-    img.src = D.about.photo;
+    img.onload = () => { $('#about-photo').src = img.src; $('#about-holo').classList.add('has-photo'); };
+    if (D.about.photo) img.src = D.about.photo;
 
     const n = D.education.length;
     $('#edu-deck').innerHTML = D.education.map((e, i) => `
@@ -463,11 +463,9 @@
       });
     });
 
-    const screen = $('#about-screen');
-    gsap.timeline({ scrollTrigger: { trigger: '#about-crt', start: 'top 75%' } })
-      .fromTo(screen, { scaleX: 0, scaleY: 0.01, filter: 'brightness(4)' }, { scaleX: 1, duration: 0.3, ease: 'power2.out' })
-      .to(screen, { scaleY: 1, filter: 'brightness(1)', duration: 0.4, ease: 'power3.out' });
-    if (!isMobile()) gsap.fromTo('#about-crt', { y: 80, rotate: 2 }, { y: -60, rotate: -1.5, ease: 'none', scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'bottom top', scrub: true } });
+    // the hologram itself lives in js/holo.js; here its HUD frame just brackets in
+    gsap.fromTo('#about-holo .hc', { scale: 2.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: 'steps(6)', stagger: 0.08, scrollTrigger: { trigger: '#about-holo', start: 'top 72%' } });
+    if (!isMobile()) gsap.fromTo('#about-holo', { y: 60 }, { y: -40, ease: 'none', scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'bottom top', scrub: true } });
   }
 
   /* --- section titles: speed-italic swoosh; eyebrows decode ------------- */

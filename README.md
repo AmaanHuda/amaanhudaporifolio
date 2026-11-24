@@ -33,16 +33,17 @@ Responses are cached for 30 minutes per visitor. If either service is down, the 
 |---|---|
 | `js/data.js` | All content |
 | `js/main.js` | Every animation and interaction |
+| `js/holo.js` | About-section hologram (ES module; lazy-loads Three.js when the section is near) |
 | `js/hero-shader.js` | WebGL synthwave horizon: stars, striped sun, mountains, scrolling neon grid |
 | `css/style.css` | Palette, type, layout, responsive rules |
-| `js/vendor/` | GSAP, ScrollTrigger, Lenis (local copies) |
+| `js/vendor/` | GSAP, ScrollTrigger, Lenis, Three.js r170 module (local copies) |
 | `_backup-original/` | The previous (red/black) version, untouched |
 
 ## Animation map
 1. **Boot:** CRT power-on → terminal log types out with a stepped progress bar → screen collapses to a line → 14 horizontal stripes wipe away from the centre. Skip with Enter / Esc / the button.
 2. **Hero:** WebGL synthwave horizon (cursor pans the camera); chrome name drops in with a shine sweep; role line types out; HUD panels wipe in with stepped easing and decode their text.
 3. **Warp jump (scroll):** grid throttles up and the sun sets, the name's letters fly past the camera, a hyperspace starfield takes over and the phrase decodes like a teletype; then the content rises over it.
-4. **About:** every word is revealed by a cyan block-cursor wipe (scroll-scrubbed); the paragraph types itself; the CRT monitor powers on.
+4. **About:** every word is revealed by a cyan block-cursor wipe (scroll-scrubbed) and the paragraph types itself. Beside it, a **Three.js hologram projector** (`js/holo.js`): a wireframe globe on a light beam with an origin pin on India, three orbits of satellites that flash a *conjunction alert* when two drift close (a nod to Orbital AI), and HUD tags pinned to 3D points. It boots on scroll, follows the cursor, spins when dragged, and the camera dollies in as you scroll. Tags come from `about.holo` in `data.js`; if `assets/profile.jpg` exists, it appears as an ID chip.
 5. **Education:** pinned rolodex — each file flips up over its top edge as you scroll; LEDs and a split-flap counter track progress.
 6. **Experience:** rows wipe in with stepped easing; the row at screen centre lights up with a neon bar and its date flips like a Solari board; click to expand.
 7. **Projects:** list tilts like a slot-machine drum around the centre line; a floating retro TV switches channel with a static burst and vertical roll; clicking opens a **CRT power-on** dialog (and powers off on close).
