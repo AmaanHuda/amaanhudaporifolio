@@ -52,7 +52,7 @@ window.PORTFOLIO = {
     },
     {
       years: "2023 — 2025",
-      school: "",                                // add your junior college's name here
+      school: "R.D. & S.H. National College, Bandra",
       score: "69.50%",
       title: "Higher Secondary Certificate",
       place: "Class XII · HSC",
@@ -60,7 +60,7 @@ window.PORTFOLIO = {
     },
     {
       years: "2023",
-      school: "",                                // add your school's name here
+      school: "St Aloysius High School, Bandra",
       score: "85.40%",
       title: "Secondary School Certificate",
       place: "Class X · SSC",
