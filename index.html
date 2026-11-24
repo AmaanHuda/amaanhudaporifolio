@@ -1,663 +1,264 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <!-- , user-scalable=no -->
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <!-- <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-YMWDE0VTD3"
-    ></script> -->
-    <!-- <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amaan Huda — AI &amp; Data Science Developer</title>
+  <meta name="description" content="Amaan Imran Huda — B.Tech AI &amp; Data Science student and developer. Orbital AI (SIH 2026 top 7), React, Node.js and Python projects.">
+  <meta name="theme-color" content="#0b0718">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='s' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ffd23f'/%3E%3Cstop offset='1' stop-color='%23ff2f7a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' fill='%230b0718'/%3E%3Ccircle cx='32' cy='34' r='20' fill='url(%23s)'/%3E%3Crect x='10' y='38' width='44' height='3' fill='%230b0718'/%3E%3Crect x='10' y='44' width='44' height='4' fill='%230b0718'/%3E%3Crect x='10' y='51' width='44' height='5' fill='%230b0718'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma&family=Space+Grotesk:wght@400;500;700&family=VT323&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
 
-      gtag("config", "G-YMWDE0VTD3");
-    </script> -->
-
-    <meta
-      name="google-site-verification"
-      content="zMNl24ruDnyqiliYwKNU_r09OkPCDKz0kMBtF9nqiCc"
-    />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#000" />
-    <meta
-      name="description"
-      content="Amaan Huda | Portfolio, Visit and know about me & my projects/designs. I value simple content structure, clean design patterns, and thoughtful interactions."
-    />
-    <meta
-      name="keywords"
-      content="Amaan Huda, Amaan Huda portfolio, Amaan Huda Portfolio, vinodjangid, Amaan Huda github, vinodjangid site, vinodjangid uiverse, uiverse, Amaan Huda uiverse, Amaan Huda frontend developer, frontend developer, Amaan Huda jaipur, vinod jaipur"
-    />
-    <meta name="author" content="Amaan Huda" />
-
-    <!-- 
-    <meta property="og:title" content="" >
-    
-    <meta property="og:url" content="" >
-    <meta property="og:site_name" content="" >
-    <meta property="og:description" content="" >
-    <meta name="twitter:title" content="" >
-    <meta name="twitter:image" content="" >
-    <meta name="twitter:url" content="" >
-    <meta name="twitter:card" content="" > -->
-    <title>Amaan Huda | Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="src/jpg/self1.png" />
-    <!-- aos cdn -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- stylesheet -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- fontawesome -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-      crossorigin="anonymous"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Passions+Conflict&family=Orbitron&family=Fira+Code&family=Six+Caps"
-    />
-    <!-- google icons -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-    />
-  </head>
-  <body class="body">
-    <audio loop="" id="audioPlayer" style="display: none">
-      <source src="src/mp3/preloader.mp3" type="audio/mp3" />
-    </audio>
-    <noscript>Allow Javascript</noscript>
-
-    <header>
-      <div class="cursor outer"></div>
-
-      <div class="navbar" id="navbar">
-        <div class="hey">Hiii</div>
-
-        <div class="navbar-tabs" id="navbar-tabs">
-          <ul class="navbar-tabs-ul">
-            <a href="#home" tabindex="0" aria-label="Home menu button">
-              <li
-                class="home activeThistab"
-                class="navbar-tabs-li"
-                data-aos="fade-down"
-                data-aos-delay="100"
-              >
-                Home
-              </li></a
-            >
-            <a href="#about" aria-label="about menu button">
-              <li
-                class="about"
-                class="navbar-tabs-li"
-                data-aos="fade-down"
-                data-aos-delay="300"
-              >
-                AboutMe
-              </li></a
-            >
-            <a href="#skills" aria-label="skills menu button">
-              <li
-                class="skills"
-                class="navbar-tabs-li"
-                data-aos="fade-down"
-                data-aos-delay="500"
-              >
-                Skills
-              </li></a
-            >
-            <a href="#projects" aria-label="projects menu button">
-              <li
-                class="projects"
-                class="navbar-tabs-li"
-                data-aos="fade-down"
-                data-aos-delay="700"
-              >
-                Projects
-              </li></a
-            >
-          </ul>
-        </div>
-        <!-- navbar tabs ends -->
+  <!-- ===== Boot sequence ===== -->
+  <div class="boot" id="boot">
+    <div class="boot-stripes" id="boot-stripes" aria-hidden="true"></div>
+    <div class="boot-screen" id="boot-screen" aria-hidden="true">
+      <pre class="boot-log" id="boot-log"></pre>
+      <div class="boot-meter">
+        <div class="boot-bar"><span id="boot-fill"></span></div>
+        <div class="boot-pct" id="boot-pct">000%</div>
       </div>
-    </header>
-    <!-- header ends here -->
+    </div>
+    <button type="button" class="boot-skip" id="boot-skip">Skip intro ▸</button>
+  </div>
 
-    <main>
-      <!-- hamburger -->
-      <div class="hamburger" id="hamburger" data-aos="fade">
-        <div class="hamburgerbase">
-          <button
-            id="hamburger-button"
-            onclick="hamburgerMenu()"
-            tabindex="0"
-            aria-label="Menu Button"
-          >
-            <span class="burger-bar" id="burger-bar1"></span>
-            <span class="burger-bar" id="burger-bar2"></span>
-            <span class="burger-bar" id="burger-bar3"></span>
-          </button>
-        </div>
+  <!-- CRT scanlines, vignette and a rolling tracking bar over everything -->
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <!-- ===== Hero: synthwave horizon → warp jump ===== -->
+  <div class="scroll-wrap" id="scroll-wrap">
+    <section class="hero" id="hero">
+      <h1 class="sr-only" id="sr-title"></h1>
+      <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+      <canvas class="warp-canvas" id="warp-canvas" aria-hidden="true"></canvas>
+
+      <div class="hud hud-tl" id="hud-tl">
+        <p class="hud-label">◢ Transmission // 2026</p>
+        <div class="hero-tagline" id="hero-tagline"></div>
       </div>
-      <!-- hamburger -->
-      <div class="mobiletogglemenu" id="mobiletogglemenu">
-        <ul class="mobile-navbar-tabs-ul" id="mobile-ul">
-          <a href="#home" tabindex="0" aria-label="Home menu button">
-            <li
-              id="home-mobile-tab"
-              class="mobile-navbar-tabs-li home activeThismobiletab"
-              onclick="hidemenubyli()"
-            >
-              Home
-            </li></a
-          >
-          <a href="#about" tabindex="0" aria-label="about menu button">
-            <li
-              id="aboutme-mobile-tab"
-              class="mobile-navbar-tabs-li about"
-              onclick="hidemenubyli()"
-            >
-              AboutMe
-            </li></a
-          >
-          <a href="#skills" tabindex="0" aria-label="skills menu button">
-            <li
-              id="skills-mobile-tab"
-              class="mobile-navbar-tabs-li skills"
-              onclick="hidemenubyli()"
-            >
-              Skills
-            </li></a
-          >
-          <a href="#projects" tabindex="0" aria-label="projects menu button">
-            <li
-              id="projects-mobile-tab"
-              class="mobile-navbar-tabs-li projects"
-              onclick="hidemenubyli()"
-            >
-              Projects
-            </li></a
-          >
-        </ul>
+      <div class="hud hud-tr" id="hud-tr" aria-hidden="true">
+        <p class="hud-label">Sys <b class="blink">●</b> Online</p>
+        <p class="hud-label">Time <span id="hud-clock">00:00:00</span></p>
+        <p class="hud-label">Signal <span class="sig">▮▮▮▮▯</span></p>
       </div>
-      <!-- mobile toggle menu ends -->
-      <div class="fakenavbar"></div>
 
-      <section class="landing-page-container" id="home">
-        <div class="boxAnimation"></div>
-        <div class="text-content">
-          <article id="hello-friend" data-aos="fade-up" data-aos-delay="0">
-            <p class="jello">h</p>
-            <p class="jello">e</p>
-            <p class="jello">l</p>
-            <p class="jello">l</p>
-            <p class="jello">o</p>
-            <p class="jello">S</p>
-            <p class="jello">t</p>
-            <p class="jello">r</p>
-            <p class="jello">a</p>
-            <p class="jello">n</p>
-            <p class="jello">g</p>
-            <p class="jello">e</p>
-            <p class="jello">r</p>
-            <p class="jello">(</p>
-            <p class="jello">)</p>
-            <p class="jello">;</p>
+      <div class="hero-title" id="hero-title" aria-hidden="true">
+        <div class="hero-name" id="hero-name"></div>
+        <p class="hero-role caret" id="hero-role"></p>
+      </div>
 
-            &nbsp;
-            <p class="jello">I</p>
-            <p class="jello">'</p>
-            <p class="jello">m</p>
-          </article>
-          <article id="name" data-aos="fade-up" data-aos-delay="200">
-            <p class="jello">A</p>
-            <p class="jello">m</p>
-            <p class="jello">a</p>
-            <p class="jello">a</p>
-            <p class="jello">n</p>
-            &nbsp;
-            <p class="jello">H</p>
-            <p class="jello">u</p>
-            <p class="jello">d</p>
-            <p class="jello">a</p>
+      <div class="hero-bar" id="hero-bar">
+        <span class="chr" data-chr="Portfolio ©2026"></span>
+        <nav class="hero-bar-center" id="hero-socials" aria-label="Social links"></nav>
+        <nav class="hero-bar-right" aria-label="Sections">
+          <a class="chr" data-chr="Education" href="#education"></a>
+          <a class="chr" data-chr="Experience" href="#experience"></a>
+          <a class="chr" data-chr="Work" href="#projects"></a>
+          <a class="chr" data-chr="Contact" href="#contact"></a>
+          <a class="chr resume-link" data-chr="Resume ↓" data-resume></a>
+        </nav>
+      </div>
+      <div class="hero-scroll" id="hero-scroll" aria-hidden="true">Scroll to launch <span>▼</span></div>
 
-            <p class="jello">.</p>
-          </article>
+      <p class="warp-phrase" id="warp-phrase" aria-hidden="true"></p>
+      <div class="stage-dim" id="stage-dim"></div>
+    </section>
+  </div>
 
-          <article id="work" data-aos="fade-up" data-aos-delay="400">
-            <div><p class="jello">I</p></div>
-            <div>
-              <p class="jello">d</p>
-              <p class="jello">e</p>
-              <p class="jello">s</p>
-              <p class="jello">i</p>
-              <p class="jello">g</p>
-              <p class="jello">n</p>
-            </div>
-            <div><p class="jello">&</p></div>
-            <div>
-              <p class="jello">c</p>
-              <p class="jello">o</p>
-              <p class="jello">d</p>
-              <p class="jello">e</p>
-            </div>
-            <div>
-              <p class="jello">f</p>
-              <p class="jello">o</p>
-              <p class="jello">r</p>
-            </div>
-            <div>
-              <p class="jello">f</p>
-              <p class="jello">u</p>
-              <p class="jello">n</p>
-              <p class="jello">.</p>
-            </div>
-          </article>
-          <p id="info-para" data-aos="fade-up" data-aos-delay="600">
-            Hey There! Happy to see you here.<br />
-            <br />
-          </p>
-          <div class="contact-btn-div" data-aos="fade-up" data-aos-delay="800">
-            <a href="https://www.instagram.com/amaan.css/" tabindex="-1">
-              <button class="letsTalkBtn">
-                <p class="letsTalkBtn-text">Let's Talk!</p>
-                <span class="letsTalkBtn-BG"></span></button
-            ></a>
-            <div class="setting-container" id="setting-container">
-              <input
-                type="checkbox"
-                id="switchforsetting"
-                onclick="settingtoggle()"
-              />
-
-              <label
-                for="switchforsetting"
-                class="needtobeinvert"
-                id="labelforsetting"
-                tabindex="0"
-                aria-label="settings for sound and appearance"
-              ></label>
-
-              <div
-                class="visualmodetogglebuttoncontainer"
-                id="visualmodetogglebuttoncontainer"
-              >
-                <input
-                  type="checkbox"
-                  id="switchforvisualmode"
-                  onclick="visualmode()"
-                />
-                <label
-                  for="switchforvisualmode"
-                  id="labelforvisualmode"
-                  tabindex="0"
-                  aria-label="switch appearance"
-                ></label>
-              </div>
-
-              <div
-                class="soundtogglebuttoncontainer"
-                id="soundtogglebuttoncontainer"
-              >
-                <input
-                  type="checkbox"
-                  id="switchforsound"
-                  onclick="playpause()"
-                />
-                <label
-                  for="switchforsound"
-                  id="labelforsound"
-                  tabindex="0"
-                  aria-label="switch sound"
-                  class="needtobeinvert"
-                ></label>
-              </div>
-            </div>
-            <!-- setting div ends -->
-          </div>
-          <!-- contact-btn-div -->
+  <main class="content" id="content">
+    <!-- ===== About ===== -->
+    <section class="about" id="about" data-label="About">
+      <p class="eyebrow">01 // Introduction</p>
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="about-lead" id="about-lead"></div>
+          <p class="about-sub typer" id="about-sub"></p>
+          <div class="about-meta" id="about-meta"></div>
         </div>
-        <!-- Resume button -->
-        <!-- <button class="resume-btn" id="resume-btn" onclick="openURL()">
-          <div class="sign">
-            <svg viewBox="0 0 640 512">
-              <path
-                d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-167l80 80c9.4 9.4 24.6 9.4 33.9 0l80-80c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-39 39V184c0-13.3-10.7-24-24-24s-24 10.7-24 24V318.1l-39-39c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9z"
-              />
-            </svg>
-          </div>
-
-          <div class="text">Resume</div>
-        </button> -->
-      </section>
-      <!-- landing page ends here -->
-      <section class="about-section-container" id="about" data-aos="fade-up">
-        <div class="about-section">
-          <div class="section-heading">
-            <article
-              class="section-heading-article"
-              tabindex="0"
-              aria-label="About me heading"
-            >
-              AboutMe
-            </article>
-            <p class="sectionHeadingP"></p>
-          </div>
-
-          <div class="info-dp-section">
-            <div class="about-info">
-              <p tabindex="0">Hey There,happy to see you here!</p>
-              <br />
-              <br />
-              <p tabindex="0">
-                Developer since 2021. I enjoy building projects, learning new
-                technologies, and pretending Stack Overflow is just a
-                "reference."
-              </p>
-              <br />
+        <figure class="crt" id="about-crt">
+          <div class="crt-bezel">
+            <div class="crt-screen" id="about-screen">
+              <img class="about-photo" id="about-photo" alt="Portrait of Amaan" decoding="async">
+              <div class="about-monogram" id="about-monogram" aria-hidden="true"><span>A</span></div>
+              <div class="crt-glass" aria-hidden="true"></div>
             </div>
+          </div>
+          <figcaption class="crt-label"><span class="rec">●</span> CAM-01 · LIVE FEED</figcaption>
+        </figure>
+      </div>
+    </section>
 
-            <div class="dp" data-aos="fade-up">
-              <img
-                src="src/jpg/self1.png"
-                alt="Amaan Huda"
-                tabindex="0"
-                aria-label="image of Amaan"
-              />
+    <!-- ===== Education: pinned rolodex ===== -->
+    <section class="education" id="education" data-label="Education">
+      <div class="edu-pin" id="edu-pin">
+        <div class="edu-intro">
+          <p class="eyebrow">02 // Education</p>
+          <h2 class="section-title">Where I <em>learned</em></h2>
+          <p class="edu-hint">Scroll to flip the files ↓</p>
+          <div class="edu-readout"><span id="edu-count">FILE 01</span><div class="edu-leds" id="edu-leds"></div></div>
+        </div>
+        <div class="edu-deck" id="edu-deck"></div>
+      </div>
+    </section>
+
+    <!-- ===== Experience ===== -->
+    <section class="experience" id="experience" data-label="Experience">
+      <div class="exp-head">
+        <p class="eyebrow">03 // Experience</p>
+        <h2 class="section-title">What I've <em>done</em></h2>
+      </div>
+      <div class="exp-list" id="exp-list"></div>
+    </section>
+
+    <!-- ===== Projects: channel-select drum + CRT set ===== -->
+    <section class="projects" id="projects" data-label="Projects">
+      <div class="proj-head">
+        <p class="eyebrow">04 // Selected work</p>
+        <h2 class="section-title">Now <em>broadcasting</em></h2>
+      </div>
+      <div class="projects-list" id="projects-list"></div>
+    </section>
+
+    <!-- ===== Hyperspace tunnel gallery (desktop) ===== -->
+    <section class="tunnel" id="tunnel" data-label="Gallery">
+      <div class="tunnel-pin" id="tunnel-pin">
+        <div class="tunnel-world" id="tunnel-world"></div>
+        <p class="tunnel-phrase" id="tunnel-phrase">Every project is a chance to solve a <em>real problem</em>, sharpen the interaction and <em>ship something useful</em>.</p>
+        <div class="tunnel-hud" id="tunnel-hud" aria-hidden="true">Velocity <span id="tunnel-vel">0.00</span> c</div>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section class="skills" id="skills" data-label="Skills">
+      <div class="skills-left">
+        <p class="eyebrow">05 // Skills</p>
+        <p class="skills-text" id="skills-text"></p>
+        <div class="scope">
+          <canvas id="scope-canvas" aria-hidden="true"></canvas>
+          <span class="scope-label">OSC-1 · Scroll to modulate</span>
+        </div>
+        <a class="chr skills-contact" data-chr="Get in touch →" href="#contact"></a>
+      </div>
+      <div class="skills-right" id="skills-right"></div>
+    </section>
+
+    <!-- ===== GitHub: live telemetry ===== -->
+    <section class="gh" id="github" data-label="GitHub">
+      <div class="gh-head">
+        <p class="eyebrow">06 // GitHub telemetry</p>
+        <h2 class="section-title">Live from <em>GitHub</em></h2>
+        <p class="gh-status" id="gh-status"><span class="blink">●</span> Establishing uplink…</p>
+      </div>
+      <div class="gh-panel">
+        <div class="gh-stats" id="gh-stats">
+          <div><span>Contributions · last year</span><b id="gh-total">----</b></div>
+          <div><span>Public repos</span><b id="gh-repos">--</b></div>
+          <div><span>Followers</span><b id="gh-followers">--</b></div>
+          <div><span>Longest streak</span><b id="gh-streak">--</b></div>
+        </div>
+        <div class="gh-cal-wrap">
+          <div class="gh-cal" id="gh-cal" role="img" aria-label="GitHub contribution calendar for the last year"></div>
+          <div class="gh-legend" aria-hidden="true"><span>Less</span><i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i><span>More</span></div>
+        </div>
+        <div class="gh-repos" id="gh-repo-list"></div>
+        <a class="chr gh-profile" id="gh-profile" data-chr="Open GitHub profile ↗" target="_blank" rel="noopener noreferrer"></a>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="contact" id="contact" data-label="Contact">
+      <div class="contact-pin" id="contact-pin">
+        <div class="contact-bands" id="contact-bands" aria-hidden="true"></div>
+        <h2 class="contact-title" id="contact-title">Contact</h2>
+        <div class="term" id="contact-term">
+          <div class="term-bar"><span>■ TRANSMIT.EXE</span><span class="term-lights" aria-hidden="true"><i></i><i></i><i></i></span></div>
+          <div class="term-body">
+            <p class="term-line" id="contact-avail"></p>
+            <p class="term-line dim">Based in India, collaborating <em>anywhere</em>. Tell me what you're building and I'll reply within a day or two.</p>
+            <form class="contact-form" id="contact-form" novalidate>
+              <label><span>&gt; Name_</span><input name="name" type="text" autocomplete="name" required></label>
+              <label><span>&gt; Message_</span><textarea name="message" rows="3" required></textarea></label>
+              <button type="submit" class="chr send" data-chr="Send transmission →"></button>
+            </form>
+            <div class="term-resume">
+              <span class="term-line dim">&gt; Prefer paper? Grab the full resume.</span>
+              <a class="chr resume-btn" data-chr="Download resume ↓" data-resume></a>
             </div>
           </div>
         </div>
-      </section>
-      <!-- about section ends  -->
-
-      <section class="skills-section-container" id="skills">
-        <div class="skills-section">
-          <div class="section-heading" data-aos="fade-up">
-            <article
-              class="section-heading-article"
-              tabindex="0"
-              aria-label="skills heading"
-            >
-              Skills
-            </article>
-            <p class="sectionHeadingP"></p>
-          </div>
-
-          <div class="frontend-dev-section">
-            <div
-              class="frontend-dev-heading"
-              data-aos="fade-up"
-              tabindex="0"
-              aria-label="As a frontend a developer these are the skills i have"
-            >
-              Tech Stack
-            </div>
-            <div class="tech-stack-wrapper">
-              <div class="tech-stack-box" data-aos="fade-up">
-                <img
-                  src="./src/png/htmllogo.png"
-                  alt="Html"
-                  class="tech-stack-logo"
-                />
-              </div>
-
-              <div class="tech-stack-box" data-aos="fade-up">
-                <img
-                  src="./src/png/csslogo.png"
-                  alt="css"
-                  class="tech-stack-logo"
-                />
-              </div>
-
-              <div class="tech-stack-box" data-aos="fade-up">
-                <img
-                  src="./src/png/jslogo.png"
-                  alt="js"
-                  class="tech-stack-logo"
-                />
-              </div>
-
-              <div class="tech-stack-box" data-aos="fade-up">
-                <img
-                  src="./src/png/bootstraplogo.png"
-                  alt="bootstrap"
-                  class="tech-stack-logo"
-                />
-              </div>
-
-              <div class="tech-stack-box" data-aos="fade-up">
-                <img
-                  src="./src/png/reactlogo.png"
-                  alt="react"
-                  class="tech-stack-logo"
-                />
-              </div>
-
-              <div class="tech-stack-box" data-aos="fade-up">
-                <img
-                  src="./src/png/githublogo.png"
-                  alt="github"
-                  class="tech-stack-logo needtobeinvert"
-                />
-              </div>
-
-              <div class="tech-stack-box" data-aos="fade-up">
-                <img
-                  src="./src/png/gitlogo.png"
-                  alt="git"
-                  class="tech-stack-logo"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- skills section ends -->
-      <section class="projects-section-container" id="projects">
-        <div class="projects-section-div">
-          <div class="section-heading" data-aos="fade-up">
-            <article
-              class="section-heading-article"
-              tabindex="0"
-              aria-label="My projects starts from here"
-            >
-              Projects
-            </article>
-            <p class="sectionHeadingP"></p>
-          </div>
-          <div class="project-boxes-div">
-            <a
-              href="https://www.impactgrouptutions.in"
-              target="_blank"
-              data-aos="fade-up"
-              ><div class="project-box project-box2" id="project-box2">
-                <div class="info-div">
-                  <img
-                    src="src/jpg/Frame 28.png"
-                    alt=""
-                    class="faviconforProject"
-                  />
-                  <article class="ProjectHeading">Impact Group Tutions</article>
-                  <p class="ProjectDescription">
-                    A wesbite made for a real life functioning coaching class in
-                    India. Using technologies such as HTML, SCSS and Javascript
-                  </p>
-                  <button class="cta">
-                    <span>See the Live Site</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                      <path d="M1,5 L11,5"></path>
-                      <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                  </button>
-                </div>
-                <div class="image-div">
-                  <img src="src/jpg/igt.png" alt="" />
-                </div></div
-            ></a>
-          </div>
-          <div class="project-boxes-div">
-            <a
-              href="https://amaanhuda.github.io/wattwiseai/"
-              target="_blank"
-              data-aos="fade-up"
-              ><div class="project-box project-box2" id="project-box2">
-                <div class="info-div">
-                  <img
-                    src="src/jpg/Frame 28.png"
-                    alt=""
-                    class="faviconforProject"
-                  />
-                  <article class="ProjectHeading">Wattwise AI</article>
-                  <p class="ProjectDescription">
-                    This is a full stack website which I've coded mostly
-                    frontend with my team during the summer internship provided
-                    from my college.
-                  </p>
-                  <button class="cta">
-                    <span>See the Live Site</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                      <path d="M1,5 L11,5"></path>
-                      <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                  </button>
-                </div>
-                <div class="image-div">
-                  <img src="src/jpg/image.png" alt="" />
-                </div></div
-            ></a>
-          </div>
-        </div>
-      </section>
-    </main>
-    <!-- main ends here -->
-
-    <footer>
-      <button class="fas" id="backtotopbutton" onclick="scrolltoTopfunction()">
-        <article aria-label="Back to top">&#8592;BACK TO TOP</article>
-      </button>
-      <div class="footercontainer">
-        <div class="two-words">
-          <article
-            tabindex="0"
-            aria-label="Learning, Living, and Leveling Up, my quote"
-          >
-            "Learning, Living, and Leveling Up."
-          </article>
-        </div>
-        <div class="social-media-container">
-          <div class="getintouch-heading"><article>GetinTouch();</article></div>
-          <div class="logos">
-            <a
-              href="https://instagram.com/amaan.css"
-              target="_blank"
-              tabindex="0"
-              aria-label="My instagram"
-              ><svg viewBox="0 0 448 512" class="SocialHandle">
-                <path
-                  d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-                /></svg
-            ></a>
-
-            <!-- <a
-              href=""
-              target="_blank"
-              aria-label="My Linkdin"
-              ><svg class="SocialHandle" viewBox="0 0 448 512">
-                <path
-                  d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
-                /></svg
-            ></a> -->
-
-            <a
-              href="https://github.com/AmaanHuda"
-              target="_blank"
-              aria-label="My github"
-              ><svg viewBox="0 0 496 512" class="SocialHandle">
-                <path
-                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-                /></svg
-            ></a>
-
-            <a
-              href="mailto:bignetworkagency@gmail.com"
-              target="_blank"
-              aria-label="My G mail"
-              ><svg id="GmailLogo" viewBox="0 0 512 512">
-                <path
-                  d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"
-                /></svg
-            ></a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <article>
-            Design & Built by Amaan Huda
-            <i class="far fa-copyright"></i> 2024
-          </article>
+        <div class="contact-bottom" id="contact-bottom">
+          <nav class="contact-socials" id="contact-socials" aria-label="Social links"></nav>
+          <a class="contact-mail" id="contact-mail"></a>
         </div>
       </div>
-    </footer>
-    <!-- footer ends here -->
-  </body>
+    </section>
+  </main>
 
-  <script src="./main.js"></script>
+  <!-- ===== Footer: synthwave sunset ===== -->
+  <footer class="footer" id="footer">
+    <div class="footer-sky" aria-hidden="true"><div class="footer-sun"></div></div>
+    <div class="footer-floor" aria-hidden="true"><div class="footer-grid"></div></div>
+    <div class="footer-top">
+      <div class="footer-col"><span class="chr" data-chr="© 2026 · Amaan"></span><a class="chr" id="footer-mail" data-chr=""></a></div>
+      <nav class="footer-col" id="footer-socials" aria-label="Social links"></nav>
+      <nav class="footer-col" aria-label="Sections">
+        <a class="chr" data-chr="▲ Back to top" href="#top"></a>
+        <a class="chr" data-chr="Work" href="#projects"></a>
+        <a class="chr" data-chr="Contact" href="#contact"></a>
+        <a class="chr" data-chr="Resume ↓" data-resume></a>
+      </nav>
+    </div>
+    <div class="footer-marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+    <div class="footer-name" id="footer-name"></div>
+  </footer>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-  <script type="module">
-    import * as THREE from "three";
-    // Three JS
+  <!-- ===== Floating UI ===== -->
+  <div class="proj-tv" id="proj-tv" aria-hidden="true">
+    <div class="tv">
+      <div class="tv-antenna" aria-hidden="true"></div>
+      <div class="tv-body">
+        <div class="tv-screen" id="tv-screen">
+          <div class="tv-roll" id="tv-roll"><img id="tv-img" alt=""></div>
+          <canvas class="tv-noise" id="tv-noise" width="160" height="120"></canvas>
+          <span class="tv-osd" id="tv-osd">CH 01</span>
+          <span class="tv-name" id="tv-name"></span>
+          <div class="crt-glass"></div>
+        </div>
+        <div class="tv-panel"><i class="knob"></i><i class="knob"></i><span class="tv-grill"></span></div>
+      </div>
+    </div>
+  </div>
 
-    const boxCanva = document.getElementsByClassName("boxAnimation");
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      0,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000,
-    );
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.render(scene, camera);
-    console.log("The script is working");
-  </script>
-  <script>
-    function openURL() {
-      var url = "src/pdf/Amaan Huda Resume.pdf";
+  <div class="reticle" id="reticle" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="reticle-label" id="reticle-label"></span></div>
 
-      window.open(url, "_blank");
-    }
-  </script>
-  <script type="importmap"></script>
+  <div class="page-fade" id="page-fade"></div>
 
-  <script>
-    const cursor = document.querySelector(".cursor");
-    const links = document.querySelectorAll("a,label,button");
+  <section class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="detail-title" aria-hidden="true" inert>
+    <button type="button" class="detail-back chr" id="detail-back" data-chr="← Back" aria-label="Close project"></button>
+    <div class="detail-info">
+      <p class="detail-ch" id="detail-ch"></p>
+      <div class="detail-title-wrap"><h2 class="detail-title" id="detail-title"></h2><span class="detail-year" id="detail-year"></span></div>
+      <p class="detail-desc" id="detail-desc"></p>
+      <ul class="detail-points" id="detail-points"></ul>
+      <div class="detail-tags" id="detail-tags"></div>
+      <div class="detail-links" id="detail-links"></div>
+    </div>
+    <div class="detail-media" id="detail-media"><div class="detail-screen"><img id="detail-img" alt=""><div class="crt-glass"></div></div></div>
+  </section>
 
-    window.addEventListener("mousemove", (e) => {
-      let x = e.pageX;
-      let y = e.pageY;
+  <div class="readout" id="readout"><span class="blink">●</span> T+ <span id="readout-pct">000</span>%</div>
+  <div class="rail" id="rail"><span class="rail-label" id="rail-label"></span><div class="rail-bar" id="rail-bar"></div></div>
 
-      cursor.style.left = `${x}px`;
-      cursor.style.top = `${y}px`;
-
-      links.forEach((link) => {
-        link.addEventListener("mouseenter", () => {
-          cursor.classList.add("hover");
-        });
-        link.addEventListener("mouseleave", () => {
-          cursor.classList.remove("hover");
-        });
-      });
-    });
-  </script>
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/hero-shader.js"></script>
+  <script src="js/main.js"></script>
+</body>
 </html>

@@ -1,7 +1,4 @@
+# Plain static site: no build step, serve the repo root.
 [build]
-  command = "npm run build"
-  publish = "dist"
-
-[build.environment]
-  NODE_VERSION = "20"
-  NPM_FLAGS = "--include=dev"
+  command = ""
+  publish = "."
