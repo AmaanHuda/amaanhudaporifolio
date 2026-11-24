@@ -24,9 +24,13 @@ A static site can't accept uploads from the browser and keep them, because that 
 
 ## Live GitHub panel
 Section 06 pulls public data for `github.user` in `data.js` straight from the browser. No token or build step is needed.
-- Profile stats and the 4 most recently pushed repos come from `api.github.com`.
+- Profile stats (public repos, followers) come from `api.github.com`.
 - The contribution calendar comes from `github-contributions-api.jogruber.de`, a free public mirror of the GitHub graph.
 Responses are cached for 30 minutes per visitor. If either service is down, the panel says so and links to your profile.
+
+## LinkedIn posts carousel
+Section 07 shows the posts listed in `linkedin.posts` in `data.js`. LinkedIn has no public feed API, so the carousel can't update itself.
+To add a post, copy its link from LinkedIn ("Copy link to post") and add an entry at the top: `{ date, title, org, text, tags, url }`. Set `repost: true` for reposts.
 
 ## Files
 | File | What it does |
@@ -49,6 +53,7 @@ Responses are cached for 30 minutes per visitor. If either service is down, the 
 7. **Projects:** list tilts like a slot-machine drum around the centre line; a floating retro TV switches channel with a static burst and vertical roll; clicking opens a **CRT power-on** dialog (and powers off on close).
 8. **Tunnel (desktop):** fly through rotating neon frames past the project covers while the phrase lights up word by word.
 9. **Skills:** an oscilloscope whose amplitude and frequency follow scroll velocity; accordion chips pop in.
+9b. **GitHub + LinkedIn:** the contribution calendar lights up cell by cell; LinkedIn posts sit in a cassette-deck carousel (◀◀ ▶▶ buttons, drag, arrow keys, auto-advance every 6s, tape progress bar).
 10. **Contact:** sunset bands sweep in from alternating sides, the title skids in, the `TRANSMIT.EXE` terminal powers on.
 11. **Footer:** striped sun rises over an endlessly rolling grid; chrome name bounces in; marquee "end of transmission".
 

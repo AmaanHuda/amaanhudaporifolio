@@ -107,6 +107,10 @@
       <article class="edu-card">
         <header class="edu-card-head"><span>FILE ${pad(i + 1)}/${pad(n)}</span><span class="edu-stripes"></span><span>EDU</span></header>
         <div class="edu-years">${esc(e.years)}</div>
+        <div class="edu-hand-row">
+          <p class="edu-hand${e.school ? '' : ' alt'}">${esc(e.school || e.place.split('·')[0].trim())}</p>
+          ${e.score ? `<span class="edu-stamp"><svg viewBox="0 0 120 60" aria-hidden="true"><path d="M8 32 C8 10 62 4 98 12 C122 18 116 50 74 54 C36 58 4 50 10 26" /></svg><b>${esc(e.score)}</b></span>` : ''}
+        </div>
         <h3 class="edu-title">${esc(e.title)}</h3>
         <p class="edu-place">${esc(e.place)}</p>
         <p class="edu-notes">${esc(e.notes)}</p>
@@ -375,6 +379,7 @@
     tunnelScene();
     skillsScene();
     githubScene();
+    linkedinScene();
     contactScene();
     footerScene();
     railScene();
@@ -799,12 +804,12 @@
     });
   }
 
-  /* --- GitHub: live profile stats, contribution calendar, latest repos -- */
+  /* --- GitHub: live profile stats + contribution calendar -------------- */
   function githubScene() {
     const user = D.github && D.github.user;
     const section = $('#github');
     if (!user) { section.remove(); return; }
-    const status = $('#gh-status'), cal = $('#gh-cal'), list = $('#gh-repo-list');
+    const status = $('#gh-status'), cal = $('#gh-cal');
     $('#gh-profile').href = `https://github.com/${encodeURIComponent(user)}`;
     const setStatus = (text, ok) => { status.classList.toggle('bad', !ok); status.innerHTML = `<span class="blink">●</span> ${esc(text)}`; };
 
@@ -818,10 +823,6 @@
       try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), d })); } catch {}
       return d;
     }
-    const ago = iso => {
-      const days = Math.floor((Date.now() - new Date(iso)) / 864e5);
-      return days < 1 ? 'today' : days === 1 ? 'yesterday' : days < 30 ? `${days}d ago` : days < 365 ? `${Math.floor(days / 30)}mo ago` : `${Math.floor(days / 365)}y ago`;
-    };
 
     let inView = false, cells = [], total = null, revealed = false;
     function reveal() {
@@ -832,29 +833,17 @@
         const o = { n: 0 }, el = $('#gh-total');
         gsap.to(o, { n: total, duration: reduced ? 0 : 1.6, ease: 'power2.out', onUpdate: () => { el.textContent = pad(Math.round(o.n), 4); } });
       }
-      gsap.fromTo('.gh-repo', { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 0.5, ease: 'steps(8)', stagger: 0.12, delay: 0.3 });
     }
     ScrollTrigger.create({ trigger: section, start: 'top 70%', once: true, onEnter: () => { inView = true; reveal(); } });
 
     const base = 'https://api.github.com/users/' + encodeURIComponent(user);
     Promise.allSettled([
       getJSON(base),
-      getJSON(base + '/repos?sort=pushed&per_page=12'),
       getJSON(`https://github-contributions-api.jogruber.de/v4/${encodeURIComponent(user)}?y=last`)
-    ]).then(([prof, repos, contrib]) => {
+    ]).then(([prof, contrib]) => {
       if (prof.status === 'fulfilled') {
         scramble($('#gh-repos'), pad(prof.value.public_repos), { duration: 0.6, chars: FLAP });
         scramble($('#gh-followers'), pad(prof.value.followers), { duration: 0.6, chars: FLAP });
-      }
-      if (repos.status === 'fulfilled') {
-        const top = repos.value.filter(r => !r.fork).slice(0, 4);
-        list.innerHTML = top.map(r => `
-          <a class="gh-repo" href="${esc(r.html_url)}" target="_blank" rel="noopener noreferrer">
-            <span class="gh-repo-name">${esc(r.name)}</span>
-            <span class="gh-repo-desc">${esc(r.description || 'No description yet.')}</span>
-            <span class="gh-repo-meta"><i style="--lc:${r.language ? '#3ff2ff' : '#6b6385'}"></i>${esc(r.language || '—')} · ★ ${r.stargazers_count} · pushed ${ago(r.pushed_at)}</span>
-          </a>`).join('');
-        if (revealed) gsap.set('.gh-repo', { clipPath: 'none' });
       }
       if (contrib.status === 'fulfilled' && contrib.value.contributions) {
         const days = contrib.value.contributions;
@@ -877,6 +866,72 @@
       setStatus(ok ? `Uplink established · @${user} · synced ${pad(d.getHours())}:${pad(d.getMinutes())}` : 'Uplink lost · GitHub unreachable right now', ok);
       reveal();
       ScrollTrigger.refresh();
+    });
+  }
+
+  /* --- LinkedIn: transmissions carousel ------------------------------- */
+  function linkedinScene() {
+    const section = $('#linkedin');
+    const posts = (D.linkedin && D.linkedin.posts) || [];
+    if (!posts.length) { section.remove(); return; }
+    const track = $('#li-track'), count = $('#li-count'), tape = $('#li-tape-fill');
+    $('#li-profile').href = D.contact.linkedin;
+    const fmt = iso => new Date(iso + 'T00:00:00').toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
+    track.innerHTML = posts.map((p, i) => `
+      <article class="li-card${p.repost ? ' repost' : ''}" aria-roledescription="slide" aria-label="${i + 1} of ${posts.length}">
+        <header class="li-card-bar"><span>TX-${pad(i + 1)}</span><span>${fmt(p.date)}</span><span class="li-in">in</span></header>
+        <div class="li-card-body">
+          <p class="li-org">${p.repost ? '↻ ' : ''}${esc(p.org)}</p>
+          <h3 class="li-title">${esc(p.title)}</h3>
+          <p class="li-text">${esc(p.text)}</p>
+          <div class="li-tags">${(p.tags || []).map(t => `<span>#${esc(t.replace(/\s+/g, ''))}</span>`).join('')}</div>
+        </div>
+        <a class="li-read" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">Read on LinkedIn ↗</a>
+      </article>`).join('');
+    const cards = $$('.li-card', track);
+    let cur = -1, idle = 0, live = false;
+
+    // active card = the one nearest the track's left edge
+    function sync() {
+      const left = track.scrollLeft, max = track.scrollWidth - track.clientWidth;
+      let best = 0, bd = Infinity;
+      cards.forEach((c, i) => { const d = Math.abs(c.offsetLeft - cards[0].offsetLeft - left); if (d < bd) { bd = d; best = i; } });
+      if (max > 0 && left >= max - 4) best = cards.length - 1;
+      tape.style.transform = `scaleX(${max > 0 ? left / max : 1})`;
+      if (best !== cur) {
+        cur = best;
+        cards.forEach((c, i) => c.classList.toggle('active', i === cur));
+        scramble(count, `TX ${pad(cur + 1)}/${pad(cards.length)}`, { duration: 0.3, chars: FLAP });
+      }
+    }
+    const go = i => {
+      i = (i + cards.length) % cards.length;
+      track.scrollTo({ left: cards[i].offsetLeft - cards[0].offsetLeft, behavior: reduced ? 'auto' : 'smooth' });
+    };
+    $('#li-prev').addEventListener('click', () => { go(cur - 1); idle = 0; });
+    $('#li-next').addEventListener('click', () => { go(cur + 1); idle = 0; });
+    track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+    track.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
+    });
+    // drag to scroll with a mouse (touch already swipes natively)
+    let down = false, sx = 0, sl = 0, moved = false;
+    track.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = track.scrollLeft; track.classList.add('grabbing'); });
+    addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - sx; if (Math.abs(dx) > 4) moved = true; track.scrollLeft = sl - dx; });
+    addEventListener('pointerup', () => { if (!down) return; down = false; track.classList.remove('grabbing'); if (moved) go(cur); });
+    track.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    sync();
+
+    // auto-advance every 6s while on screen and not hovered
+    ScrollTrigger.create({ trigger: section, start: 'top 80%', end: 'bottom 20%', onToggle: s => { live = s.isActive; } });
+    section.addEventListener('pointerenter', () => { idle = -1e9; });
+    section.addEventListener('pointerleave', () => { idle = 0; });
+    if (!reduced) setInterval(() => { if (live && !down && ++idle >= 6) { idle = 0; go(cur + 1); } }, 1000);
+
+    gsap.fromTo(cards, { clipPath: 'inset(0 0 100% 0)', y: 30 }, {
+      clipPath: 'inset(0 0 0% 0)', y: 0, duration: 0.6, ease: 'steps(10)', stagger: 0.12,
+      scrollTrigger: { trigger: track, start: 'top 82%' }, onComplete: () => gsap.set(cards, { clearProps: 'clipPath' })
     });
   }
 
