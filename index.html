@@ -274,6 +274,25 @@
     <div class="detail-media" id="detail-media"><div class="detail-screen"><img id="detail-img" alt=""><div class="crt-glass"></div></div></div>
   </section>
 
+  <!-- ===== Mail chooser: every email link + the contact form open this ===== -->
+  <div class="mail" id="mail" role="dialog" aria-modal="true" aria-labelledby="mail-title" aria-hidden="true" inert>
+    <div class="mail-scrim" data-mail-close></div>
+    <div class="mail-box" id="mail-box">
+      <div class="mail-bar"><span>■ CHANNEL SELECT</span><button type="button" class="mail-x" data-mail-close aria-label="Close">✕</button></div>
+      <div class="mail-body">
+        <p class="mail-kicker">&gt; Open a channel to</p>
+        <h2 class="mail-title" id="mail-title"></h2>
+        <p class="mail-preview" id="mail-preview"></p>
+        <div class="mail-opts" id="mail-opts">
+          <a class="mail-opt primary" data-mail="gmail" target="_blank" rel="noopener noreferrer"><kbd>1</kbd><span><b>Gmail</b><small>Compose in your browser</small></span><i>↗</i></a>
+          <a class="mail-opt" data-mail="outlook" target="_blank" rel="noopener noreferrer"><kbd>2</kbd><span><b>Outlook</b><small>Outlook.com web mail</small></span><i>↗</i></a>
+          <a class="mail-opt" data-mail="app"><kbd>3</kbd><span><b>Mail app</b><small>Your device's default email app</small></span><i>→</i></a>
+          <button type="button" class="mail-opt" data-mail="copy"><kbd>4</kbd><span><b>Copy address</b><small id="mail-copy-note">Paste it anywhere</small></span><i>⧉</i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="readout" id="readout"><span class="blink">●</span> T+ <span id="readout-pct">000</span>%</div>
   <div class="rail" id="rail"><span class="rail-label" id="rail-label"></span><div class="rail-bar" id="rail-bar"></div></div>
 

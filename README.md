@@ -28,6 +28,15 @@ Section 06 pulls public data for `github.user` in `data.js` straight from the br
 - The contribution calendar comes from `github-contributions-api.jogruber.de`, a free public mirror of the GitHub graph.
 Responses are cached for 30 minutes per visitor. If either service is down, the panel says so and links to your profile.
 
+## Email chooser
+Every email link (hero, contact, footer) and the contact form open a "Channel select" dialog instead of jumping straight to a mail app. Visitors can pick:
+- Gmail web compose
+- Outlook web compose
+- their default mail app
+- copying `contact.email`
+
+When it opens from the form, the subject, message and sender's name are pre-filled. Keys 1–4 pick an option and Esc closes the dialog.
+
 ## LinkedIn posts carousel
 Section 07 shows the posts listed in `linkedin.posts` in `data.js`. LinkedIn has no public feed API, so the carousel can't update itself.
 To add a post, copy its link from LinkedIn ("Copy link to post") and add an entry at the top: `{ date, title, org, text, tags, url }`. Set `repost: true` for reposts.

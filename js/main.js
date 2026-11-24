@@ -226,6 +226,85 @@
     lenis.scrollTo(t, { duration: 1.6, offset });
   });
 
+  /* ------------------------------------------------------------------------
+     Mail chooser: any mailto link, and the contact form, open a channel
+     picker (Gmail / Outlook web / default mail app / copy address)
+     ------------------------------------------------------------------------ */
+  const mail = (() => {
+    const box = $('#mail'), panel = $('#mail-box'), title = $('#mail-title'), preview = $('#mail-preview');
+    const opts = $$('.mail-opt', box), note = $('#mail-copy-note');
+    const to = D.contact.email;
+    let open = false, lastFocus = null, resumeLenis = false;
+    title.textContent = to;
+
+    function show({ subject = '', body = '' } = {}) {
+      if (open) return; open = true;
+      const enc = encodeURIComponent;
+      $('[data-mail="gmail"]', box).href = `https://mail.google.com/mail/?view=cm&fs=1&to=${enc(to)}&su=${enc(subject)}&body=${enc(body)}`;
+      $('[data-mail="outlook"]', box).href = `https://outlook.live.com/mail/0/deeplink/compose?to=${enc(to)}&subject=${enc(subject)}&body=${enc(body)}`;
+      $('[data-mail="app"]', box).href = `mailto:${to}` + (subject || body ? `?subject=${enc(subject)}&body=${enc(body)}` : '');
+      preview.textContent = body ? `"${body.length > 90 ? body.slice(0, 90) + '…' : body}" will be pre-filled.` : 'Pick how you want to send your message.';
+      note.textContent = 'Paste it anywhere';
+      lastFocus = document.activeElement;
+      resumeLenis = !lenis.isStopped; lenis.stop(); label('');
+      box.removeAttribute('inert'); box.setAttribute('aria-hidden', 'false'); box.classList.add('open');
+      gsap.timeline()
+        .fromTo('.mail-scrim', { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'steps(4)' }, 0)
+        .fromTo(panel, { scaleX: 0, scaleY: 0.012, filter: 'brightness(4)' }, { scaleX: 1, duration: reduced ? 0 : 0.2, ease: 'power2.out' }, 0.05)
+        .to(panel, { scaleY: 1, filter: 'brightness(1)', duration: reduced ? 0 : 0.28, ease: 'power3.out' })
+        .fromTo(opts, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.3, ease: 'steps(4)', stagger: 0.06 }, '-=0.05')
+        .add(() => scramble(title, to, { duration: 0.5 }), 0.3);
+      opts[0].focus({ preventScroll: true });
+    }
+    function hide() {
+      if (!open) return; open = false;
+      gsap.timeline({ onComplete() {
+        box.classList.remove('open'); box.setAttribute('inert', ''); box.setAttribute('aria-hidden', 'true');
+        gsap.set(panel, { clearProps: 'all' });
+        if (resumeLenis) lenis.start();
+        lastFocus && lastFocus.focus && lastFocus.focus({ preventScroll: true });
+      } })
+        .to(panel, { scaleY: 0.012, filter: 'brightness(4)', duration: reduced ? 0 : 0.18, ease: 'power3.in' })
+        .to(panel, { scaleX: 0, duration: reduced ? 0 : 0.14, ease: 'power3.in' })
+        .to('.mail-scrim', { opacity: 0, duration: 0.2, ease: 'steps(3)' }, 0.1);
+    }
+    async function copy() {
+      try { await navigator.clipboard.writeText(to); note.textContent = 'Copied ✓'; }
+      catch {
+        const t = document.createElement('textarea'); t.value = to; document.body.appendChild(t); t.select();
+        try { document.execCommand('copy'); note.textContent = 'Copied ✓'; } catch { note.textContent = to; }
+        t.remove();
+      }
+      scramble(note, note.textContent, { duration: 0.3 });
+    }
+
+    box.addEventListener('click', e => {
+      if (e.target.closest('[data-mail-close]')) return hide();
+      const o = e.target.closest('.mail-opt');
+      if (!o) return;
+      if (o.dataset.mail === 'copy') { e.preventDefault(); copy(); return; }
+      setTimeout(hide, 150);           // let the link open, then power the box off
+    });
+    addEventListener('keydown', e => {
+      if (!open) return;
+      if (e.key === 'Escape') { e.preventDefault(); hide(); return; }
+      if (/^[1-4]$/.test(e.key)) { e.preventDefault(); opts[+e.key - 1].click(); return; }
+      if (e.key === 'Tab') {
+        const f = [...opts, $('.mail-x', box)]; const a = f[0], b = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === a) { e.preventDefault(); b.focus(); }
+        else if (!e.shiftKey && document.activeElement === b) { e.preventDefault(); a.focus(); }
+      }
+    });
+    // every mailto link on the page goes through the chooser (except the chooser's own)
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a[href^="mailto:"]');
+      if (!a || a.closest('#mail')) return;
+      e.preventDefault();
+      show();
+    }, true);
+    return { show, hide };
+  })();
+
   // live HUD clock
   const clock = $('#hud-clock');
   const tick = () => { const d = new Date(); clock.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`; };
@@ -941,8 +1020,7 @@
     form.addEventListener('submit', e => {
       e.preventDefault();
       const name = form.name.value.trim(), msg = form.message.value.trim();
-      if (!msg) { form.message.focus(); return; }
-      location.href = `mailto:${D.contact.email}?subject=${encodeURIComponent('Portfolio enquiry' + (name ? ' from ' + name : ''))}&body=${encodeURIComponent(msg)}`;
+      mail.show({ subject: 'Portfolio enquiry' + (name ? ' from ' + name : ''), body: msg + (name ? `\n\n— ${name}` : '') });
     });
     const bands = $$('#contact-bands i');
     if (isMobile()) {
